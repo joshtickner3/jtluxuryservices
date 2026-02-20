@@ -690,11 +690,6 @@
             </div>
           </div>
 
-          <!-- HERO PHOTO (CHANGE #1)
-               Replace this URL with YOUR glossy after photo.
-               Best: upload your image to your site and use a relative path like:
-               background-image:url('images/after-1.jpg')
-          -->
           <div class="photo-panel" aria-label="Detailing results photo">
             <div class="photo" style="background-image:url('images/your-after-photo.jpg');"></div>
             <div class="badge">
@@ -853,7 +848,7 @@
       </div>
     </section>
 
-    <!-- CERAMIC OPTIONS (CHANGE #2) -->
+    <!-- CERAMIC OPTIONS -->
     <section id="ceramic">
       <div class="container">
         <div class="section-title">
@@ -963,10 +958,11 @@
           <div class="card">
             <div class="h"><div class="mini" aria-hidden="true">✉️</div>Request a quote</div>
 
-            <form id="quoteForm">
+            <!-- FORM UPDATED TO FORMSPREE -->
+            <form id="quoteForm" action="https://formspree.io/f/mnjbbrpp" method="POST">
               <div class="field">
                 <label for="service">Service</label>
-                <select id="service" name="service">
+                <select id="service" name="service" required>
                   <option>Signature Detail</option>
                   <option>Premium Reset</option>
                   <option>Enhance + Protect (1-Step)</option>
@@ -978,69 +974,28 @@
 
               <div class="field">
                 <label for="name">Name</label>
-                <input id="name" name="name" placeholder="Your name" autocomplete="name" />
+                <input id="name" name="name" placeholder="Your name" autocomplete="name" required />
               </div>
 
               <div class="field">
                 <label for="contact">Phone or Email</label>
-                <input id="contact" name="contact" placeholder="(555) 555-5555 or you@email.com" />
+                <input id="contact" name="contact" placeholder="(555) 555-5555 or you@email.com" required />
               </div>
 
               <div class="field">
                 <label for="notes">Vehicle / Add-ons</label>
-                <textarea id="notes" name="notes" placeholder="Make/model, condition, pet hair, stains, water spots, ceramic interest, address..."></textarea>
+                <textarea id="notes" name="notes" placeholder="Make/model, condition, pet hair, stains, water spots, ceramic interest, address..." required></textarea>
               </div>
 
+              <!-- Optional: email subject + honeypot (spam reduction) -->
+              <input type="hidden" name="_subject" value="JT Luxury Detailing — New Quote Request" />
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
               <button class="btn primary" type="submit" style="width:100%;">Send Request</button>
-              <p class="small">Opens your email app with a pre-filled message.</p>
+              <p class="small">Sends instantly—no email app needed.</p>
+
+              <p id="formStatus" class="small" style="display:none;"></p>
             </form>
-          </div>
-        </div>
-
-        <!-- Email routing note -->
-        <div style="margin-top:14px;" class="strip">
-          <div>
-            <b>Important: sending requests to your inbox</b>
-            <span>
-              Right now your form uses <b>mailto:</b> which opens the visitor’s email app.
-              If you want it to send directly to your inbox automatically, you’ll need a form backend (recommended options below).
-            </span>
-          </div>
-          <a class="btn" href="#email-setup">How to route email</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- EMAIL SETUP (quick + minimal) -->
-    <section id="email-setup">
-      <div class="container">
-        <div class="section-title">
-          <h2>Email Setup</h2>
-          <div class="hint">Two approaches: quick (mailto) vs proper (automatic inbox delivery).</div>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <div class="h"><div class="mini" aria-hidden="true">✓</div>Quick (what you have now)</div>
-            <p>
-              Your form opens the visitor’s email app and sends to the address you set in code.
-              To switch to your business inbox, change the email constant:
-              <b>contact@jtluxuryservices.com</b>
-            </p>
-            <p class="small" style="margin-top:12px;">
-              Downside: if they don’t have an email app configured (or are on mobile), some people won’t submit.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="h"><div class="mini" aria-hidden="true">⟡</div>Proper (recommended)</div>
-            <p>
-              The form submits in the background and sends directly to your inbox.
-              You need a form backend like <b>Formspree</b>, <b>Netlify Forms</b>, or <b>Getform</b>.
-            </p>
-            <p class="small" style="margin-top:12px;">
-              If you tell me where the site is hosted (Netlify, Vercel, Squarespace, etc.), I’ll drop in the exact snippet.
-            </p>
           </div>
         </div>
       </div>
@@ -1107,30 +1062,33 @@
       });
     });
 
-    // Quote form -> mailto (no backend)
-    // CHANGE #3: Set to your business inbox
-    const YOUR_EMAIL = "contact@jtluxuryservices.com";
+    // Formspree submit (AJAX) + inline status (prevents page redirect)
+    const form = document.getElementById("quoteForm");
+    const statusEl = document.getElementById("formStatus");
 
-    document.getElementById("quoteForm").addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const service = document.getElementById("service").value.trim();
-      const name = document.getElementById("name").value.trim();
-      const contact = document.getElementById("contact").value.trim();
-      const notes = document.getElementById("notes").value.trim();
+      const data = new FormData(form);
 
-      const subject = encodeURIComponent(`JT Luxury Detailing Quote — ${service}`);
-      const body = encodeURIComponent(
-`Service: ${service}
-Name: ${name}
-Contact: ${contact}
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
 
-Vehicle / Notes:
-${notes}
-
-Service Area: King of Prussia / Main Line (please confirm address)`
-      );
-
-      window.location.href = `mailto:${YOUR_EMAIL}?subject=${subject}&body=${body}`;
+        if (res.ok) {
+          form.reset();
+          statusEl.style.display = "block";
+          statusEl.textContent = "Request sent. We’ll reach out shortly.";
+        } else {
+          statusEl.style.display = "block";
+          statusEl.textContent = "Couldn’t send right now. Please text us instead.";
+        }
+      } catch (err) {
+        statusEl.style.display = "block";
+        statusEl.textContent = "Couldn’t send right now. Please text us instead.";
+      }
     });
   </script>
 
