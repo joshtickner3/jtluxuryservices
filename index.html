@@ -1,30 +1,10 @@
-</style>
-<style>
-  .site-logo-fixed {
-    position: fixed;
-    right: 32px;
-    top: 24px;
-    width: 110px;
-    height: auto;
-    z-index: 9999;
-    opacity: 0.92;
-    background: rgba(18,19,26,0.10);
-    border-radius: 14px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
-    transition: opacity 0.2s;
-    pointer-events: none;
-  }
-  .site-logo-fixed:hover {
-    opacity: 1;
-  }
-</style>
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JT Luxury Services | Premium Mobile Detailing & Concierge Care</title>
-  <meta name="description" content="JT Luxury Services provides premium mobile detailing in King of Prussia, PA with concierge-level care. More luxury services coming soon." />
+  <title>JT Luxury Detailing | Premium Mobile Detailing & Paint Protection</title>
+  <meta name="description" content="JT Luxury Detailing provides premium mobile detailing, paint enhancement, ceramic coating, and interior restoration in King of Prussia, PA and the Main Line." />
 
   <!-- Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,6 +23,7 @@
       --line:rgba(255,255,255,.10);
       --shadow: 0 18px 45px rgba(0,0,0,.55);
       --radius: 18px;
+      --ok: rgba(214,178,94,.22);
     }
 
     *{ box-sizing:border-box; }
@@ -62,6 +43,23 @@
     a{ color:inherit; text-decoration:none; }
     img{ max-width:100%; display:block; }
     .container{ width:min(1120px, 92vw); margin:0 auto; }
+
+    /* Fixed logo */
+    .site-logo-fixed {
+      position: fixed;
+      right: 32px;
+      top: 24px;
+      width: 110px;
+      height: auto;
+      z-index: 9999;
+      opacity: 0.92;
+      background: rgba(18,19,26,0.10);
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+    .site-logo-fixed:hover { opacity: 1; }
 
     /* Top bar */
     header{
@@ -143,6 +141,11 @@
       transform: translateY(-1px);
       background: linear-gradient(135deg, rgba(240,210,137,.92), rgba(214,178,94,.60));
     }
+    .btn.ghost{
+      border-color: rgba(214,178,94,.22);
+      background: rgba(214,178,94,.06);
+      color: var(--gold2);
+    }
 
     /* Dropdown */
     .dropdown{ position:relative; }
@@ -150,7 +153,7 @@
       position:absolute;
       right:0;
       top: calc(100% + 10px);
-      width: min(440px, 88vw);
+      width: min(460px, 92vw);
       border-radius: 16px;
       border: 1px solid var(--line);
       background: linear-gradient(180deg, rgba(18,19,26,.96), rgba(13,14,18,.96));
@@ -198,7 +201,7 @@
     }
 
     /* Hero */
-    .hero{ padding: 62px 0 30px; }
+    .hero{ padding: 62px 0 26px; }
     .hero-grid{
       display:grid;
       grid-template-columns: 1.12fr .88fr;
@@ -330,10 +333,10 @@
     }
 
     /* Sections */
-    section{ padding: 38px 0; }
+    section{ padding: 34px 0; }
     .section-title{
       display:flex; align-items:flex-end; justify-content:space-between;
-      gap: 18px; margin-bottom: 16px;
+      gap: 18px; margin-bottom: 14px;
     }
     .section-title h2{
       margin:0;
@@ -351,6 +354,11 @@
     .grid-3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
     .card{
@@ -378,6 +386,41 @@
     }
     .card p{ margin:0; color: var(--muted); font-size: 13px; line-height:1.6; }
 
+    /* Chips */
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 10px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing:.01em;
+      white-space:nowrap;
+    }
+    .chip i{
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(214,178,94,.30);
+      background: rgba(214,178,94,.10);
+      display:grid;
+      place-items:center;
+      font-style: normal;
+      color: var(--gold2);
+      font-size: 12px;
+      flex: 0 0 auto;
+    }
+
     /* Highlight strip */
     .strip{
       border-radius: 18px;
@@ -394,7 +437,7 @@
     .strip b{ font-weight:900; letter-spacing:-.01em; }
     .strip span{ color: var(--muted); font-size: 12px; line-height:1.5; display:block; margin-top:4px; }
 
-    /* Pricing */
+    /* Packages */
     .pricing{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -456,39 +499,33 @@
       background: radial-gradient(circle, rgba(240,210,137,.35), transparent 60%);
     }
 
-    /* Gallery */
-    .gallery{
+    /* Add-ons grid */
+    .addons{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 14px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
     }
-    .shot{
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      overflow:hidden;
-      box-shadow: 0 14px 40px rgba(0,0,0,.50);
-      position:relative;
-      background: #0b0b10;
-      min-height: 240px;
+    .addon{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 14px;
+      min-height: 92px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.35);
     }
-    .shot .cap{
-      position:absolute;
-      left: 14px;
-      bottom: 14px;
-      right: 14px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(8,8,12,.52);
-      backdrop-filter: blur(10px);
-      color: var(--text);
+    .addon b{
+      display:block;
       font-size: 12px;
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      align-items:center;
+      font-weight: 900;
+      letter-spacing:.01em;
+      margin-bottom: 6px;
     }
-    .shot .cap span{ color: var(--muted); font-weight:700; }
+    .addon span{
+      display:block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height:1.45;
+    }
 
     /* Contact */
     .contact-grid{
@@ -532,13 +569,20 @@
     }
 
     /* Responsive */
-    @media (max-width: 920px){
+    @media (max-width: 980px){
       .hero-grid{ grid-template-columns: 1fr; }
       .photo-panel{ min-height: 360px; }
       .grid-3{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
       .pricing{ grid-template-columns: 1fr; }
-      .gallery{ grid-template-columns: 1fr; }
+      .addons{ grid-template-columns: 1fr 1fr; }
       .contact-grid{ grid-template-columns: 1fr; }
+      .site-logo-fixed{ right: 16px; top: 14px; width: 96px; }
+    }
+    @media (max-width: 460px){
+      .addons{ grid-template-columns: 1fr; }
+      .brand{ min-width: unset; }
+      .brand .name span{ display:none; }
     }
   </style>
 </head>
@@ -547,11 +591,11 @@
   <header>
     <div class="container">
       <div class="nav">
-        <a class="brand" href="#top" aria-label="JT Luxury Services Home">
+        <a class="brand" href="#top" aria-label="JT Luxury Detailing Home">
           <div class="mark" aria-hidden="true"></div>
           <div class="name">
-            <b>JT LUXURY SERVICES</b>
-            <span>Concierge-quality care • King of Prussia, PA</span>
+            <b>JT LUXURY DETAILING</b>
+            <span>Mobile detailing • King of Prussia, PA</span>
           </div>
         </a>
 
@@ -562,45 +606,44 @@
             </button>
 
             <div class="menu" id="servicesMenu" role="menu" aria-label="Services menu">
-              <a class="item" href="#service-detailing" role="menuitem">
+              <a class="item" href="#services" role="menuitem">
                 <div class="icon" aria-hidden="true">✦</div>
                 <div>
-                  <div class="title">Premium Mobile Detailing</div>
-                  <div class="desc">Exterior + interior detailing at your driveway.</div>
+                  <div class="title">Service Menu</div>
+                  <div class="desc">Fast view of what we do (mobile).</div>
                 </div>
-                <div class="pill">Now booking</div>
+                <div class="pill">Browse</div>
               </a>
 
-              <a class="item" href="#service-protection" role="menuitem">
+              <a class="item" href="#packages" role="menuitem">
                 <div class="icon" aria-hidden="true">⟡</div>
                 <div>
-                  <div class="title">Paint Enhancement & Protection</div>
-                  <div class="desc">Decon, polish, sealants and spray ceramics.</div>
+                  <div class="title">Packages</div>
+                  <div class="desc">Simple tiers—premium results.</div>
                 </div>
-                <div class="pill">Premium</div>
+                <div class="pill">Popular</div>
               </a>
 
-              <a class="item" href="#service-interior" role="menuitem">
-                <div class="icon" aria-hidden="true">☼</div>
+              <a class="item" href="#addons" role="menuitem">
+                <div class="icon" aria-hidden="true">✓</div>
                 <div>
-                  <div class="title">Interior Reset</div>
-                  <div class="desc">Deep clean options for pets, kids, and odors.</div>
+                  <div class="title">Add-Ons</div>
+                  <div class="desc">Easy upsells that make a big difference.</div>
                 </div>
-                <div class="pill">High demand</div>
+                <div class="pill">Upsell</div>
               </a>
 
-              <a class="item" href="#service-home" role="menuitem">
-                <div class="icon" aria-hidden="true">⌂</div>
+              <a class="item" href="#booking" role="menuitem">
+                <div class="icon" aria-hidden="true">📅</div>
                 <div>
-                  <div class="title">Home Services</div>
-                  <div class="desc">Luxury home cleaning & care (coming soon).</div>
+                  <div class="title">Book</div>
+                  <div class="desc">Text-friendly scheduling & quotes.</div>
                 </div>
-                <div class="pill">Coming soon</div>
+                <div class="pill">Now booking</div>
               </a>
             </div>
           </div>
 
-          <!-- Replace with your Calendly/Square link -->
           <a class="btn primary" href="#booking">Book</a>
         </div>
       </div>
@@ -615,35 +658,35 @@
           <div class="hero-card">
             <div class="overlay" aria-hidden="true"></div>
             <div class="hero-content">
-              <div class="kicker">Luxury Services • Delivered</div>
-              <h1>Premium care for<br/>your car — and beyond.</h1>
+              <div class="kicker">Premium Mobile Detailing</div>
+              <h1>Luxury-level results.<br/>Simple, clean experience.</h1>
               <p class="sub">
-                JT Luxury Services brings concierge-quality detailing to busy professionals in King of Prussia and the Main Line.
-                Crisp finishes, careful methods, and a premium experience from booking to final wipe-down.
+                High-end exterior & interior detailing, paint enhancement, and protection services delivered to your driveway.
+                Designed for clients who want the car to look expensive—without the hassle.
               </p>
 
               <div class="cta-row">
-                <a class="btn primary" href="#booking">Book Premium Detailing</a>
-                <a class="btn" href="#packages">View Packages</a>
-                <a class="btn" href="#gallery">See Results</a>
+                <a class="btn primary" href="#packages">View Packages</a>
+                <a class="btn" href="#services">Service Menu</a>
+                <a class="btn ghost" href="tel:+16106395874">Call</a>
+                <a class="btn ghost" href="sms:+16106395874">Text</a>
               </div>
 
               <div class="trust">
                 <span><span class="dot"></span>King of Prussia • Main Line • Montco</span>
-                <span><span class="dot"></span>Paint-safe process</span>
-                <span><span class="dot"></span>Text-friendly booking</span>
+                <span><span class="dot"></span>Paint-safe methods</span>
+                <span><span class="dot"></span>Protection-first approach</span>
               </div>
             </div>
           </div>
 
           <div class="photo-panel" aria-label="Luxury vehicle image">
-            <!-- Unsplash (free to use). Swap anytime. -->
             <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80');"></div>
             <div class="badge">
               <div class="spark" aria-hidden="true">✦</div>
               <div>
-                <b>Concierge-level finish</b>
-                <p>Refined exterior + interior results designed for high-end vehicles and busy schedules.</p>
+                <b>Detailing + paint clarity</b>
+                <p>Clean, corrected, protected—built for gloss, smoothness, and easy maintenance.</p>
               </div>
             </div>
           </div>
@@ -651,207 +694,183 @@
 
         <div style="margin-top:14px;" class="strip">
           <div>
-            <b>Founding client availability</b>
-            <span>Limited slots this month for premium mobile detailing in King of Prussia. Book now.</span>
+            <b>Limited premium slots</b>
+            <span>Mobile detailing and protection services—book ahead for weekends.</span>
           </div>
           <a class="btn primary" href="#booking">Reserve a Slot</a>
         </div>
       </div>
     </div>
 
-    <!-- WHY US -->
+    <!-- WHY (short + luxury) -->
     <section>
       <div class="container">
         <div class="section-title">
-          <h2>Luxury feel. Professional process.</h2>
-          <div class="hint">Minimal, careful methods — and a finish that looks expensive.</div>
+          <h2>Professional process. Luxury finish.</h2>
+          <div class="hint">Minimal words—maximum results.</div>
         </div>
 
         <div class="grid-3">
           <div class="card">
-            <div class="h"><div class="mini" aria-hidden="true">✓</div>Paint-Safe Wash</div>
-            <p>Two-bucket and microfiber-first techniques to minimize swirls and protect clear coat.</p>
+            <div class="h"><div class="mini" aria-hidden="true">✓</div>Paint-safe wash</div>
+            <p>Careful contact methods to reduce swirls and protect clear coat.</p>
           </div>
           <div class="card">
-            <div class="h"><div class="mini" aria-hidden="true">✦</div>Interior Precision</div>
-            <p>Crevices, vents, high-touch surfaces, and trim finished with a clean matte look.</p>
+            <div class="h"><div class="mini" aria-hidden="true">✦</div>Interior reset</div>
+            <p>Steam, extraction, and details that feel “new” again.</p>
           </div>
           <div class="card">
-            <div class="h"><div class="mini" aria-hidden="true">⟡</div>Protection Options</div>
-            <p>Sealants and spray ceramics available for longer gloss and easier maintenance washes.</p>
+            <div class="h"><div class="mini" aria-hidden="true">⟡</div>Protection options</div>
+            <p>Wax, sealants, glass coating, and ceramics for easier upkeep.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES: anchors for dropdown -->
-    <!-- Premium Mobile Detailing section removed as requested -->
-
-    <section id="service-protection">
+    <!-- SERVICES MENU (car-only, simple) -->
+    <section id="services">
       <div class="container">
         <div class="section-title">
-          <h2>Paint Enhancement & Protection</h2>
-          <div class="hint">For richer gloss, smoother paint, and better hydrophobic performance.</div>
+          <h2>Service Menu</h2>
+          <div class="hint">Core services + popular add-ons. Quotes based on size & condition.</div>
         </div>
 
-        <div class="grid-3">
+        <div class="grid-2">
           <div class="card">
-            <div class="h"><div class="mini" aria-hidden="true">⟡</div>Decontamination</div>
-            <p>Iron remover + clay (as needed) to prep paint and restore smoothness.</p>
+            <div class="h"><div class="mini" aria-hidden="true">✦</div>Exterior</div>
+            <div class="chips" aria-label="Exterior services">
+              <div class="chip"><i>✓</i>Hand wash</div>
+              <div class="chip"><i>✓</i>Wheel & tire clean</div>
+              <div class="chip"><i>✓</i>Tire shine</div>
+              <div class="chip"><i>✓</i>Paint contaminant removal</div>
+              <div class="chip"><i>✓</i>Water spot removal</div>
+              <div class="chip"><i>✓</i>Trim restoration</div>
+              <div class="chip"><i>✓</i>Headlight restoration</div>
+              <div class="chip"><i>✓</i>Paint wax / sealant</div>
+            </div>
           </div>
+
           <div class="card">
-            <div class="h"><div class="mini" aria-hidden="true">✦</div>1-Step Polish</div>
-            <p>Improves clarity and reduces light defects for a noticeably deeper shine.</p>
+            <div class="h"><div class="mini" aria-hidden="true">☼</div>Interior</div>
+            <div class="chips" aria-label="Interior services">
+              <div class="chip"><i>✓</i>Steam cleaning</div>
+              <div class="chip"><i>✓</i>Interior contaminant extraction</div>
+              <div class="chip"><i>✓</i>Stain removal</div>
+              <div class="chip"><i>✓</i>Pet hair removal</div>
+              <div class="chip"><i>✓</i>Leather conditioning</div>
+              <div class="chip"><i>✓</i>Odor removal</div>
+              <div class="chip"><i>✓</i>Air freshening</div>
+            </div>
           </div>
+
           <div class="card">
-            <div class="h"><div class="mini" aria-hidden="true">✓</div>Sealant / Spray Ceramic</div>
-            <p>Protection that makes washing easier and keeps your vehicle looking freshly detailed.</p>
+            <div class="h"><div class="mini" aria-hidden="true">⟡</div>Paint & Glass Protection</div>
+            <div class="chips" aria-label="Protection services">
+              <div class="chip"><i>✓</i>Paint enhancement (1-step)</div>
+              <div class="chip"><i>✓</i>Paint protection options</div>
+              <div class="chip"><i>✓</i>Ceramic coating</div>
+              <div class="chip"><i>✓</i>Glass coating</div>
+              <div class="chip"><i>✓</i>Glass wax / rain repellency</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="h"><div class="mini" aria-hidden="true">✓</div>Fast add-ons</div>
+            <p style="margin-bottom:10px;">Easy upgrades that boost the “wow” factor.</p>
+            <div class="chips" aria-label="Popular add-ons">
+              <div class="chip"><i>✦</i>Tire shine upgrade</div>
+              <div class="chip"><i>✦</i>Headlights</div>
+              <div class="chip"><i>✦</i>Odor treatment</div>
+              <div class="chip"><i>✦</i>Pet hair</div>
+              <div class="chip"><i>✦</i>Stain focus areas</div>
+              <div class="chip"><i>✦</i>Water spots</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="service-interior">
-      <div class="container">
-        <div class="section-title">
-          <h2>Interior Reset</h2>
-          <div class="hint">Perfect for pets, kids, heavy use, or that “new car feel” again.</div>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <div class="h"><div class="mini" aria-hidden="true">☼</div>Deep Detail</div>
-            <p>Seats, rails, consoles, cupholders, seams, and trim — not just a quick wipe.</p>
-          </div>
-          <div class="card">
-            <div class="h"><div class="mini" aria-hidden="true">⟡</div>Stain & Odor Options</div>
-            <p>Extraction, steam, and odor neutralization add-ons available by condition.</p>
-          </div>
-          <div class="card">
-            <div class="h"><div class="mini" aria-hidden="true">✦</div>Leather Care</div>
-            <p>Clean + condition for a soft, natural finish (never glossy or greasy).</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="service-home">
-      <div class="container">
-        <div class="section-title">
-          <h2>Home Services</h2>
-          <div class="hint">Planned expansion — we’ll add dedicated pages and booking when you’re ready.</div>
-        </div>
-        <div class="card">
-          <div class="h"><div class="mini" aria-hidden="true">⌂</div>Coming soon</div>
-          <p>
-            Future offerings may include luxury home cleaning, refresh services, and concierge care.
-            For launch, this site is focused on premium mobile detailing to build reviews and momentum fast.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PACKAGES -->
+    <!-- PACKAGES (positioned for $1k+) -->
     <section id="packages">
       <div class="container">
         <div class="section-title">
           <h2>Packages</h2>
-          <div class="hint">Swap pricing anytime. Keep it premium and clear.</div>
+          <div class="hint">Simple tiers. Premium finish. Starting prices shown.</div>
         </div>
 
         <div class="pricing">
           <div class="card price">
             <div class="tag">Essential</div>
-            <h3>Signature Refresh</h3>
-            <div><span class="amt">$199</span> <span class="unit">starting</span></div>
+            <h3>Signature Detail</h3>
+            <div><span class="amt">$249</span> <span class="unit">starting</span></div>
             <ul class="list">
               <li><span class="check" aria-hidden="true">✓</span>Exterior wash + wheels</li>
               <li><span class="check" aria-hidden="true">✓</span>Interior vacuum + wipe-down</li>
-              <li><span class="check" aria-hidden="true">✓</span>Glass cleaned inside/out</li>
+              <li><span class="check" aria-hidden="true">✓</span>Glass inside/out</li>
             </ul>
-            <a class="btn cta" href="#booking">Request This Package</a>
+            <a class="btn cta" href="#booking">Request Signature</a>
           </div>
 
           <div class="card price featured">
             <div class="tag">Most Popular</div>
-            <h3>Premium Detail</h3>
-            <div><span class="amt">$349</span> <span class="unit">starting</span></div>
+            <h3>Premium Reset</h3>
+            <div><span class="amt">$449</span> <span class="unit">starting</span></div>
             <ul class="list">
-              <li><span class="check" aria-hidden="true">✓</span>Deep interior detail + crevices</li>
-              <li><span class="check" aria-hidden="true">✓</span>Paint-safe wash process</li>
-              <li><span class="check" aria-hidden="true">✓</span>Protectant on key surfaces</li>
+              <li><span class="check" aria-hidden="true">✓</span>Deep interior reset</li>
+              <li><span class="check" aria-hidden="true">✓</span>Steam + light extraction</li>
+              <li><span class="check" aria-hidden="true">✓</span>Paint wax / sealant</li>
             </ul>
-            <a class="btn primary cta" href="#booking">Book Premium Detail</a>
+            <a class="btn primary cta" href="#booking">Book Premium Reset</a>
           </div>
 
           <div class="card price">
-            <div class="tag">Protection</div>
+            <div class="tag">High-End</div>
             <h3>Enhance + Protect</h3>
-            <div><span class="amt">$599</span> <span class="unit">starting</span></div>
+            <div><span class="amt">$899</span> <span class="unit">starting</span></div>
             <ul class="list">
-              <li><span class="check" aria-hidden="true">✓</span>Decontamination (as needed)</li>
-              <li><span class="check" aria-hidden="true">✓</span>1-step polish enhancement</li>
-              <li><span class="check" aria-hidden="true">✓</span>Sealant / spray ceramic protection</li>
+              <li><span class="check" aria-hidden="true">✓</span>Decon + contaminant removal</li>
+              <li><span class="check" aria-hidden="true">✓</span>1-step paint enhancement</li>
+              <li><span class="check" aria-hidden="true">✓</span>Protection: sealant or entry ceramic</li>
             </ul>
-            <a class="btn cta" href="#booking">Request Enhancement</a>
+            <a class="btn cta" href="#booking">Request Enhance + Protect</a>
           </div>
+        </div>
+
+        <div style="margin-top:14px;" class="strip">
+          <div>
+            <b>Ceramic Coating Packages</b>
+            <span>For clients who want the car to stay clean longer and keep a high-gloss finish.</span>
+          </div>
+          <a class="btn primary" href="#booking">Ask About Ceramic</a>
         </div>
       </div>
     </section>
 
-    <!-- RESULTS -->
-    <section id="gallery">
+    <!-- ADD-ONS (easy upsells, minimal text) -->
+    <section id="addons">
       <div class="container">
         <div class="section-title">
-          <h2>Results</h2>
-          <div class="hint">Replace these with your own photos ASAP for the highest conversion.</div>
+          <h2>Popular Add-Ons</h2>
+          <div class="hint">Perfect upgrades for a cleaner look and better protection.</div>
         </div>
 
-        <div class="gallery">
-          <!-- No images currently in the Results section -->
-        </div>
-        <style>
-        .gallery {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 32px;
-          justify-content: center;
-          margin-top: 32px;
-        }
-        .shot {
-          background: var(--panel2);
-          border-radius: 16px;
-          box-shadow: 0 6px 32px rgba(0,0,0,0.13);
-          overflow: hidden;
-          max-width: 340px;
-          flex: 1 1 300px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        .shot img {
-          width: 100%;
-          height: auto;
-          display: block;
-        }
-        .cap {
-          padding: 18px 12px 12px 12px;
-          text-align: center;
-        }
-        .cap b {
-          display: block;
-          font-size: 1.08em;
-          margin-bottom: 4px;
-        }
-        .cap span {
-          color: var(--muted);
-          font-size: 0.98em;
-        }
-        @media (max-width: 900px) {
-          .gallery { gap: 18px; }
-          .shot { max-width: 98vw; }
-        }
-        </style
+        <div class="addons">
+          <div class="addon"><b>Tire shining</b><span>Clean satin finish (no sling).</span></div>
+          <div class="addon"><b>Headlight restoration</b><span>Clarity + UV protection.</span></div>
+          <div class="addon"><b>Trim restoration</b><span>Bring faded plastics back.</span></div>
+          <div class="addon"><b>Paint contaminant removal</b><span>Tar, iron, sap as needed.</span></div>
+          <div class="addon"><b>Water spot removal</b><span>Paint + glass options.</span></div>
+          <div class="addon"><b>Glass coating</b><span>Hydrophobic visibility boost.</span></div>
+          <div class="addon"><b>Paint wax / sealant</b><span>Gloss + easy maintenance.</span></div>
+          <div class="addon"><b>Glass wax</b><span>Rain repellency on demand.</span></div>
+          <div class="addon"><b>Steam cleaning</b><span>High-touch areas & seams.</span></div>
+          <div class="addon"><b>Interior extraction</b><span>Deep contaminant pull.</span></div>
+          <div class="addon"><b>Pet hair removal</b><span>Time-based depending on severity.</span></div>
+          <div class="addon"><b>Stain removal</b><span>Spot focus or full carpet.</span></div>
+          <div class="addon"><b>Leather conditioning</b><span>Soft, natural matte finish.</span></div>
+          <div class="addon"><b>Odor removal</b><span>Neutralize, don’t mask.</span></div>
+          <div class="addon"><b>Air freshening</b><span>Clean finish, subtle scent.</span></div>
+          <div class="addon"><b>Ceramic coating</b><span>High-end protection options.</span></div>
         </div>
       </div>
     </section>
@@ -860,16 +879,15 @@
     <section id="booking">
       <div class="container">
         <div class="section-title">
-          <h2>Book a Service</h2>
-          <div class="hint">Use the button to your Calendly/Square link, or use this form for inquiries.</div>
+          <h2>Book</h2>
+          <div class="hint">Fast booking or quick quote—mobile service.</div>
         </div>
 
         <div class="contact-grid">
           <div class="card">
             <div class="h"><div class="mini" aria-hidden="true">📅</div>Instant booking</div>
             <p style="color:var(--muted); font-size:13px; line-height:1.6; margin:0;">
-              Prefer the fastest option? Tap the button and pick a time.
-              (Swap this link with your booking tool.)
+              Pick a time and we’ll confirm the vehicle size + condition details.
             </p>
             <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
               <a class="btn primary" href="https://calendly.com/josh-tickner3/30min" target="_blank" rel="noopener">Open Booking</a>
@@ -882,15 +900,15 @@
           <div class="card">
             <div class="h"><div class="mini" aria-hidden="true">✉️</div>Request a quote</div>
 
-            <!-- Simple mailto form (no backend needed). Replace YOUR_EMAIL with your email. -->
             <form id="quoteForm">
               <div class="field">
                 <label for="service">Service</label>
                 <select id="service" name="service">
-                  <option>Premium Mobile Detailing</option>
-                  <option>Paint Enhancement & Protection</option>
-                  <option>Interior Reset</option>
-                  <option>Home Services (coming soon)</option>
+                  <option>Signature Detail</option>
+                  <option>Premium Reset</option>
+                  <option>Enhance + Protect (1-Step)</option>
+                  <option>Ceramic Coating (Quote)</option>
+                  <option>Interior Only (Quote)</option>
                 </select>
               </div>
 
@@ -905,25 +923,26 @@
               </div>
 
               <div class="field">
-                <label for="notes">Vehicle / Notes</label>
-                <textarea id="notes" name="notes" placeholder="Make/model, condition, pet hair, stains, preferred days/times..."></textarea>
+                <label for="notes">Vehicle / Add-ons</label>
+                <textarea id="notes" name="notes" placeholder="Make/model, condition, pet hair, stains, water spots, ceramic interest, address..."></textarea>
               </div>
 
               <button class="btn primary" type="submit" style="width:100%;">Send Request</button>
-              <p class="small">This opens your email app with a pre-filled message (no server needed).</p>
+              <p class="small">Opens your email app with a pre-filled message.</p>
             </form>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
     <div class="container">
       <div class="footer-row">
-        <div>© <span id="yr"></span> JT Luxury Services. All rights reserved.</div>
+        <div>© <span id="yr"></span> JT Luxury Detailing. All rights reserved.</div>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="#services">Services</a>
+          <span style="opacity:.45;">•</span>
           <a href="#packages">Packages</a>
           <span style="opacity:.45;">•</span>
           <a href="#booking">Book</a>
@@ -976,7 +995,6 @@
     });
 
     // Quote form -> mailto (no backend)
-    // Replace this email with yours:
     const YOUR_EMAIL = "info@jtluxuryservices.com";
 
     document.getElementById("quoteForm").addEventListener("submit", (e) => {
@@ -986,21 +1004,23 @@
       const contact = document.getElementById("contact").value.trim();
       const notes = document.getElementById("notes").value.trim();
 
-      const subject = encodeURIComponent(`JT Luxury Services Quote Request — ${service}`);
+      const subject = encodeURIComponent(`JT Luxury Detailing Quote — ${service}`);
       const body = encodeURIComponent(
 `Service: ${service}
 Name: ${name}
 Contact: ${contact}
 
-Notes:
+Vehicle / Notes:
 ${notes}
 
-Location: King of Prussia / Main Line (please confirm address)`
+Service Area: King of Prussia / Main Line (please confirm address)`
       );
 
       window.location.href = `mailto:${YOUR_EMAIL}?subject=${subject}&body=${body}`;
     });
   </script>
-  <img src="ChatGPT Image Feb 19, 2026, 04_50_40 PM-1.png" alt="JT Luxury Services Logo" class="site-logo-fixed" />
+
+  <!-- Logo -->
+  <img src="ChatGPT Image Feb 19, 2026, 04_50_40 PM-1.png" alt="JT Luxury Detailing Logo" class="site-logo-fixed" />
 </body>
 </html>
