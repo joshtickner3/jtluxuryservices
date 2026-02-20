@@ -624,6 +624,15 @@
                 <div class="pill">Popular</div>
               </a>
 
+              <a class="item" href="#ceramic" role="menuitem">
+                <div class="icon" aria-hidden="true">◆</div>
+                <div>
+                  <div class="title">Ceramic Options</div>
+                  <div class="desc">Two simple choices to keep it easy.</div>
+                </div>
+                <div class="pill">Featured</div>
+              </a>
+
               <a class="item" href="#addons" role="menuitem">
                 <div class="icon" aria-hidden="true">✓</div>
                 <div>
@@ -668,6 +677,7 @@
               <div class="cta-row">
                 <a class="btn primary" href="#packages">View Packages</a>
                 <a class="btn" href="#services">Service Menu</a>
+                <a class="btn" href="#ceramic">Ceramic Options</a>
                 <a class="btn ghost" href="tel:+16106395874">Call</a>
                 <a class="btn ghost" href="sms:+16106395874">Text</a>
               </div>
@@ -680,13 +690,18 @@
             </div>
           </div>
 
-          <div class="photo-panel" aria-label="Luxury vehicle image">
-            <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80');"></div>
+          <!-- HERO PHOTO (CHANGE #1)
+               Replace this URL with YOUR glossy after photo.
+               Best: upload your image to your site and use a relative path like:
+               background-image:url('images/after-1.jpg')
+          -->
+          <div class="photo-panel" aria-label="Detailing results photo">
+            <div class="photo" style="background-image:url('images/your-after-photo.jpg');"></div>
             <div class="badge">
               <div class="spark" aria-hidden="true">✦</div>
               <div>
-                <b>Detailing + paint clarity</b>
-                <p>Clean, corrected, protected—built for gloss, smoothness, and easy maintenance.</p>
+                <b>Real results</b>
+                <p>Your vehicle—clean, corrected, protected.</p>
               </div>
             </div>
           </div>
@@ -790,7 +805,7 @@
       </div>
     </section>
 
-    <!-- PACKAGES (positioned for $1k+) -->
+    <!-- PACKAGES -->
     <section id="packages">
       <div class="container">
         <div class="section-title">
@@ -835,18 +850,66 @@
             <a class="btn cta" href="#booking">Request Enhance + Protect</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- CERAMIC OPTIONS (CHANGE #2) -->
+    <section id="ceramic">
+      <div class="container">
+        <div class="section-title">
+          <h2>Ceramic Coating Options</h2>
+          <div class="hint">Two simple choices. Quotes confirmed after inspection.</div>
+        </div>
+
+        <div class="pricing">
+          <div class="card price">
+            <div class="tag">Protection</div>
+            <h3>1-Year Ceramic</h3>
+            <div><span class="amt">$799</span> <span class="unit">starting</span></div>
+            <ul class="list">
+              <li><span class="check" aria-hidden="true">✓</span>Decon + prep wash</li>
+              <li><span class="check" aria-hidden="true">✓</span>Light polish (as needed)</li>
+              <li><span class="check" aria-hidden="true">✓</span>Paint + glass top coat option</li>
+            </ul>
+            <a class="btn cta" href="#booking">Request 1-Year Ceramic</a>
+          </div>
+
+          <div class="card price featured">
+            <div class="tag">Most Requested</div>
+            <h3>3+ Year Ceramic</h3>
+            <div><span class="amt">$1299</span> <span class="unit">starting</span></div>
+            <ul class="list">
+              <li><span class="check" aria-hidden="true">✓</span>Decon + full prep</li>
+              <li><span class="check" aria-hidden="true">✓</span>Paint enhancement included</li>
+              <li><span class="check" aria-hidden="true">✓</span>Optional wheel + glass coating</li>
+            </ul>
+            <a class="btn primary cta" href="#booking">Request 3+ Year Ceramic</a>
+          </div>
+
+          <div class="card price">
+            <div class="tag">Luxury</div>
+            <h3>Coating Maintenance</h3>
+            <div><span class="amt">$149</span> <span class="unit">starting</span></div>
+            <ul class="list">
+              <li><span class="check" aria-hidden="true">✓</span>Maintenance wash</li>
+              <li><span class="check" aria-hidden="true">✓</span>Safe topper refresh</li>
+              <li><span class="check" aria-hidden="true">✓</span>Hydrophobic boost</li>
+            </ul>
+            <a class="btn cta" href="#booking">Book Maintenance</a>
+          </div>
+        </div>
 
         <div style="margin-top:14px;" class="strip">
           <div>
-            <b>Ceramic Coating Packages</b>
-            <span>For clients who want the car to stay clean longer and keep a high-gloss finish.</span>
+            <b>Not sure what you need?</b>
+            <span>Send a photo + your goal (gloss, easy washing, swirl reduction). I’ll recommend the right option.</span>
           </div>
-          <a class="btn primary" href="#booking">Ask About Ceramic</a>
+          <a class="btn primary" href="#booking">Get a Recommendation</a>
         </div>
       </div>
     </section>
 
-    <!-- ADD-ONS (easy upsells, minimal text) -->
+    <!-- ADD-ONS -->
     <section id="addons">
       <div class="container">
         <div class="section-title">
@@ -907,7 +970,8 @@
                   <option>Signature Detail</option>
                   <option>Premium Reset</option>
                   <option>Enhance + Protect (1-Step)</option>
-                  <option>Ceramic Coating (Quote)</option>
+                  <option>1-Year Ceramic</option>
+                  <option>3+ Year Ceramic</option>
                   <option>Interior Only (Quote)</option>
                 </select>
               </div>
@@ -932,6 +996,53 @@
             </form>
           </div>
         </div>
+
+        <!-- Email routing note -->
+        <div style="margin-top:14px;" class="strip">
+          <div>
+            <b>Important: sending requests to your inbox</b>
+            <span>
+              Right now your form uses <b>mailto:</b> which opens the visitor’s email app.
+              If you want it to send directly to your inbox automatically, you’ll need a form backend (recommended options below).
+            </span>
+          </div>
+          <a class="btn" href="#email-setup">How to route email</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EMAIL SETUP (quick + minimal) -->
+    <section id="email-setup">
+      <div class="container">
+        <div class="section-title">
+          <h2>Email Setup</h2>
+          <div class="hint">Two approaches: quick (mailto) vs proper (automatic inbox delivery).</div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="h"><div class="mini" aria-hidden="true">✓</div>Quick (what you have now)</div>
+            <p>
+              Your form opens the visitor’s email app and sends to the address you set in code.
+              To switch to your business inbox, change the email constant:
+              <b>contact@jtluxuryservices.com</b>
+            </p>
+            <p class="small" style="margin-top:12px;">
+              Downside: if they don’t have an email app configured (or are on mobile), some people won’t submit.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="h"><div class="mini" aria-hidden="true">⟡</div>Proper (recommended)</div>
+            <p>
+              The form submits in the background and sends directly to your inbox.
+              You need a form backend like <b>Formspree</b>, <b>Netlify Forms</b>, or <b>Getform</b>.
+            </p>
+            <p class="small" style="margin-top:12px;">
+              If you tell me where the site is hosted (Netlify, Vercel, Squarespace, etc.), I’ll drop in the exact snippet.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -944,6 +1055,8 @@
           <a href="#services">Services</a>
           <span style="opacity:.45;">•</span>
           <a href="#packages">Packages</a>
+          <span style="opacity:.45;">•</span>
+          <a href="#ceramic">Ceramic</a>
           <span style="opacity:.45;">•</span>
           <a href="#booking">Book</a>
           <span style="opacity:.45;">•</span>
@@ -995,7 +1108,8 @@
     });
 
     // Quote form -> mailto (no backend)
-    const YOUR_EMAIL = "info@jtluxuryservices.com";
+    // CHANGE #3: Set to your business inbox
+    const YOUR_EMAIL = "contact@jtluxuryservices.com";
 
     document.getElementById("quoteForm").addEventListener("submit", (e) => {
       e.preventDefault();
