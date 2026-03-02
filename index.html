@@ -337,6 +337,36 @@
       font-size: 16px;
     }
 
+    /* Photo panel (stacked photos) */
+.photo-stack{
+  position:absolute;
+  inset:0;
+  display:grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.photo-item{
+  position:relative;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+  filter: saturate(1.08) contrast(1.08);
+}
+
+/* subtle line between the two photos */
+.photo-item + .photo-item{
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+
+.photo-item::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(700px 450px at 60% 20%, rgba(214,178,94,.14), transparent 55%),
+    linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.62));
+}
+
     /* Sections */
     section{ padding: 34px 0; }
     .section-title{
@@ -696,17 +726,20 @@
             </div>
           </div>
 
-          <div class="photo-panel" aria-label="Detailing results photo">
-            <div class="photo" style="background-image:url('IMG-1671-1024x680.webp'); background-size:cover; background-position:center; aspect-ratio:3/2;"></div>
-            <div class="badge">
-              <div class="spark" aria-hidden="true">✦</div>
-              <div>
-                <b>Real results</b>
-                <p>Your vehicle—clean, corrected, protected.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+         <div class="photo-panel" aria-label="Detailing results photos">
+  <div class="photo-stack" aria-hidden="true">
+    <div class="photo-item" style="background-image:url('IMG-1671-1024x680.webp');"></div>
+    <div class="photo-item" style="background-image:url('IMG_8242.jpeg');"></div>
+  </div>
+
+  <div class="badge">
+    <div class="spark" aria-hidden="true">✦</div>
+    <div>
+      <b>Real results</b>
+      <p>Your vehicle—clean, corrected, protected.</p>
+    </div>
+  </div>
+</div>
 
         <div style="margin-top:14px;" class="strip">
           <div>
