@@ -964,10 +964,40 @@
                 <input id="phone" name="phone" placeholder="(610) 555-5555" required />
               </div>
 
-              <div class="field">
-                <label for="notes">Vehicle / Add-ons</label>
-                <textarea id="notes" name="notes" placeholder="Make/model, condition, pet hair, stains, water spots, ceramic interest, address..." required></textarea>
-              </div>
+           <div class="field">
+  <label for="vehicle">Vehicle (Make & Model)</label>
+  <input
+    id="vehicle"
+    name="vehicle"
+    placeholder="e.g., 2021 Toyota Camry"
+    autocomplete="off"
+    required
+  />
+</div>
+
+<div class="field">
+  <label for="condition">Vehicle condition (optional details)</label>
+  <textarea
+    id="condition"
+    name="condition"
+    placeholder="Condition, stains, pet hair, odors, water spots, scratches, ceramic interest, anything we should know..."
+    required
+  ></textarea>
+</div>
+
+<div class="field">
+  <label for="photos">Photos (optional)</label>
+  <input
+    id="photos"
+    name="photos"
+    type="file"
+    accept="image/*"
+    multiple
+  />
+  <div class="small" style="margin-top:6px;">
+    Optional: add photos of seats, stains, paint, or problem areas.
+  </div>
+</div>
 
               <!-- Optional: email subject + honeypot (spam reduction) -->
               <input type="hidden" name="_subject" value="JT Luxury Detailing — New Quote Request" />
@@ -1067,6 +1097,7 @@
 
         if (res.ok) {
           form.reset();
+          document.querySelector('input[name="service"][type="hidden"]').value = "Custom Detail (Quote)";
           statusEl.style.display = "block";
           statusEl.textContent = "Request sent. We’ll reach out shortly.";
         } else {
