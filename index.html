@@ -943,15 +943,10 @@
             <form id="quoteForm" action="https://formspree.io/f/mnjbbrpp" method="POST">
               <div class="field">
                 <label for="service">Service</label>
-                <select id="service" name="service" required>
-                  <option>Most Common: Custom Detail (Quote)</option>
-                 <option>Signature Detail</option>
-                  <option>Premium Reset</option>
-                  <option>Enhance + Protect (1-Step)</option>
-                  <option>1-Year Ceramic</option>
-                  <option>3+ Year Ceramic</option>
-                  <option>Interior Only (Quote)</option>
-                </select>
+         <select id="service" name="service" required disabled>
+  <option selected>Custom Detail (Quote)</option>
+</select>
+<input type="hidden" name="service" value="Custom Detail (Quote)">
               </div>
 
               <div class="field">
