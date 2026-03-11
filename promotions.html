@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JT Luxury Services | Promotions</title>
-  <meta name="description" content="Current promotions and loyalty programs at JT Luxury Services." />
+  <title>JT Luxury Detailing | Promotions</title>
+  <meta name="description" content="Current promotions, packages, and loyalty programs at JT Luxury Detailing." />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     body {
@@ -12,87 +12,229 @@
       font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: #f4f4f7;
       background: #07070a;
+      background:
+        radial-gradient(900px 700px at 15% -10%, rgba(214,178,94,.12), transparent 55%),
+        radial-gradient(700px 520px at 90% 0%, rgba(240,210,137,.08), transparent 55%),
+        #07070a;
     }
+
     .container {
-      width: min(700px, 92vw);
+      width: min(760px, 92vw);
       margin: 0 auto;
-      padding: 48px 0;
+      padding: 48px 0 60px;
     }
+
     h1 {
-      font-size: 2.2em;
-      margin-bottom: 24px;
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      margin: 0 0 14px;
       color: #d6b25e;
+      line-height: 1.08;
+      letter-spacing: -.02em;
     }
+
+    .page-intro {
+      color: #b7bac7;
+      line-height: 1.7;
+      font-size: 1rem;
+      margin-bottom: 30px;
+      max-width: 60ch;
+    }
+
+    .section-label {
+      margin: 34px 0 16px;
+      font-size: .95rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #f0d289;
+    }
+
     .promo {
-      background: #12131a;
+      background: linear-gradient(180deg, rgba(18,19,26,.96), rgba(13,14,18,.96));
       border-radius: 18px;
       box-shadow: 0 8px 32px rgba(0,0,0,.35);
       padding: 28px 24px;
-      margin-bottom: 32px;
+      margin-bottom: 20px;
       border: 1px solid rgba(255,255,255,.10);
     }
+
     .promo-title {
-      font-size: 1.3em;
+      font-size: 1.22rem;
       font-weight: 700;
       color: #f0d289;
       margin-bottom: 10px;
+      line-height: 1.35;
     }
+
     .promo-desc {
-      font-size: 1em;
+      font-size: 1rem;
       color: #b7bac7;
       margin-bottom: 6px;
+      line-height: 1.7;
     }
+
     ul {
       margin: 12px 0 0 18px;
       color: #b7bac7;
-      font-size: 1em;
+      font-size: 1rem;
+      line-height: 1.7;
+      padding-left: 0;
     }
+
+    li + li {
+      margin-top: 4px;
+    }
+
     .back-link {
       display: inline-block;
-      margin-top: 24px;
+      margin-top: 28px;
       color: #d6b25e;
       font-weight: 600;
       text-decoration: none;
-      font-size: 1.1em;
+      font-size: 1.05rem;
     }
+
     .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .top-link {
+      display: inline-block;
+      margin-bottom: 22px;
+      color: #d6b25e;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: .98rem;
+    }
+
+    .top-link:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <a class="top-link" href="index.html">← Back to Home</a>
+
     <h1>Current Promotions, Packages & Loyalty Programs</h1>
+    <div class="page-intro">
+      Explore current offers, premium package options, and client programs designed to help you keep your vehicle clean, protected, and easier to maintain year-round.
+    </div>
+
+    <div class="section-label">Current Promotions</div>
+
     <div class="promo">
       <div class="promo-title">New Customer Special: $50 Off Any Premium Package Over $500 – Ends March 31st</div>
-      <div class="promo-desc">New customers: book a premium package valued over $500 to get $50 off your total. Limited time offer.</div>
+      <div class="promo-desc">
+        New customers: book a premium package valued over $500 and receive $50 off your total. Limited time offer.
+      </div>
     </div>
-        <div class="promo">
-      <div class="promo-title">New Customer Special: $50 Off Any Premium Package Over $500 – Ends March 31st</div>
-      <div class="promo-desc">New customers: book a premium package valued over $500 to get $50 off your total. Limited time offer.</div>
-    </div>
+
+    <div class="section-label">Packages</div>
+
     <div class="promo">
-      <div class="promo-title">Detail Loyalty Upgrade Program</div>
-      <div class="promo-desc">After 3 details exceeding $400 in value, receive a free credit toward ceramic wax protection.</div>
-    </div>
-      <div class="promo">
-      <div class="promo-title">Leave a review, receive credit towards your next detail</div>
-      <div class="promo-desc">Get $5 credit towards your next detail by leaving us a google review!</div>
-    </div>
-    <div class="promo">
-      <div class="promo-title">Bi-Monthly Maintenance Plan</div>
-      <div class="promo-desc"> Significant savings while maintaing the value of your vehicle. </div>
+      <div class="promo-title">Basic Interior + Exterior Bundle Savings</div>
+      <div class="promo-desc">
+        Bundle a basic interior and exterior detail together and save 20% compared to booking both services separately. Final pricing depends on vehicle size and condition.
+      </div>
       <ul>
-        <li>Exterior wash</li>
-        <li>Interior reset, disinfection & stain removal</li>
-        <li>Thorough wipe down</li>
-        <li>Priority scheduling</li>
+        <li>Lower total cost than booking interior and exterior separately</li>
+        <li>Ideal for customers wanting a full vehicle reset in one visit</li>
+        <li>Available for most standard vehicle sizes</li>
       </ul>
     </div>
+
     <div class="promo">
-      <div class="promo-title">Referral Program</div>
-      <div class="promo-desc">Refer a friend who books and get $10 towards your next detail.</div>
+      <div class="promo-title">Complete Protection Package</div>
+      <div class="promo-desc">
+        Upgrade your full detail with added protection designed to preserve your vehicle’s condition, appearance, and long-term value.
+      </div>
+      <ul>
+        <li>Full interior and exterior reset</li>
+        <li>Paint sealant / ceramic protection options</li>
+        <li>Glass coating options</li>
+        <li>Trim protection options</li>
+        <li>Ideal for owners who want easier maintenance for months</li>
+      </ul>
     </div>
+
+    <div class="promo">
+      <div class="promo-title">Seasonal Reset Detail</div>
+      <div class="promo-desc">
+        Recommended after winter salt buildup or before summer driving. A strong option for restoring your vehicle after harsh seasonal conditions.
+      </div>
+      <ul>
+        <li>Full exterior wash and decontamination</li>
+        <li>Interior deep cleaning and sanitization</li>
+        <li>Wheel and brake dust removal</li>
+        <li>Interior plastic restoration</li>
+      </ul>
+    </div>
+
+    <div class="promo">
+      <div class="promo-title">Pre-Sale Vehicle Preparation</div>
+      <div class="promo-desc">
+        Increase your vehicle’s resale appeal with a professional detail designed to maximize presentation before listing or trade-in.
+      </div>
+      <ul>
+        <li>Full interior restoration</li>
+        <li>Exterior deep cleaning</li>
+        <li>Paint enhancement for improved gloss</li>
+        <li>Interior odor removal</li>
+      </ul>
+    </div>
+
+    <div class="promo">
+      <div class="promo-title">Annual Vehicle Care Plan</div>
+      <div class="promo-desc">
+        Maintain your vehicle’s appearance year-round with scheduled detailing visits designed for long-term upkeep and convenience.
+      </div>
+      <ul>
+        <li>Initial full reset detail</li>
+        <li>Scheduled maintenance visits</li>
+        <li>Priority booking</li>
+        <li>Preferred member pricing</li>
+        <li>Contact us for available plan options</li>
+      </ul>
+    </div>
+
+    <div class="section-label">Loyalty & Client Programs</div>
+
+    <div class="promo">
+      <div class="promo-title">Vehicle Maintenance Program</div>
+      <div class="promo-desc">
+        Designed for clients who want their vehicle consistently clean without the time commitment of handling it themselves.
+      </div>
+      <ul>
+        <li>Scheduled maintenance details every 2 months</li>
+        <li>Interior refresh and exterior wash</li>
+        <li>Priority booking</li>
+        <li>Preferred member pricing</li>
+        <li>Helps reduce buildup and long-term wear</li>
+      </ul>
+    </div>
+
+    <div class="promo">
+      <div class="promo-title">Detail Loyalty Upgrade Program</div>
+      <div class="promo-desc">
+        After 3 details exceeding $400 in value, receive a free basic exterior detail with optional interior detail at a discounted price.
+      </div>
+    </div>
+
+    <div class="promo">
+      <div class="promo-title">Client Referral Rewards</div>
+      <div class="promo-desc">
+        Refer a friend who books a detail and receive $10 credit toward your next service. Multiple referral credits may be accumulated.
+      </div>
+    </div>
+
+    <div class="promo">
+      <div class="promo-title">Review Appreciation Credit</div>
+      <div class="promo-desc">
+        Leave us a Google review after your service and receive $5 credit toward your next detail.
+      </div>
+    </div>
+
     <a class="back-link" href="index.html">← Back to Home</a>
   </div>
 </body>
