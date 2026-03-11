@@ -232,18 +232,20 @@
 
     /* Dropdown */
     .dropdown{ position:relative; }
-    .menu{
-      position:absolute;
-      right:0;
-      top: calc(100% + 10px);
-      width: min(460px, 92vw);
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(18,19,26,.96), rgba(13,14,18,.96));
-      box-shadow: var(--shadow);
-      padding: 10px;
-      display:none;
-    }
+   .menu{
+  position:absolute;
+  right:0;
+  top: calc(100% + 10px);
+  width: min(560px, 92vw);
+  max-height: 78vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(18,19,26,.96), rgba(13,14,18,.96));
+  box-shadow: var(--shadow);
+  padding: 10px;
+  display:none;
+}
     .menu.open{ display:block; }
     .menu .item{
       display:flex;
@@ -835,25 +837,82 @@
               Services <span aria-hidden="true">▾</span>
             </button>
 
-            <div class="menu" id="servicesMenu" role="menu" aria-label="Services menu">
-              <a class="item" href="#services" role="menuitem">
-                <div class="icon" aria-hidden="true">✦</div>
-                <div>
-                  <div class="title">Service Menu</div>
-                  <div class="desc">What you will be getting.</div>
-                </div>
-                <div class="pill">Browse</div>
-              </a>
+        <div class="menu" id="servicesMenu" role="menu" aria-label="Services menu">
+          <div style="padding:10px 12px 12px; color:var(--muted); font-size:12px; line-height:1.5;">
+  Explore our most requested detailing, protection, and restoration services.
+</div>
+  <a class="item" href="#services" role="menuitem">
+    <div class="icon" aria-hidden="true">✦</div>
+    <div>
+      <div class="title">Full Interior + Exterior Reset</div>
+      <div class="desc">Our most popular full vehicle refresh.</div>
+    </div>
+    <div class="pill">Popular</div>
+  </a>
 
-              <a class="item" href="#booking" role="menuitem">
-                <div class="icon" aria-hidden="true">📅</div>
-                <div>
-                  <div class="title">Book</div>
-                  <div class="desc">Text-friendly scheduling & quotes.</div>
-                </div>
-                <div class="pill">Now booking</div>
-              </a>
-            </div>
+  <a class="item" href="#services" role="menuitem">
+    <div class="icon" aria-hidden="true">🧼</div>
+    <div>
+      <div class="title">Interior Detailing</div>
+      <div class="desc">Steam, extraction, stain removal, odor treatment, and reset cleaning.</div>
+    </div>
+    <div class="pill">Interior</div>
+  </a>
+
+  <a class="item" href="#services" role="menuitem">
+    <div class="icon" aria-hidden="true">🚘</div>
+    <div>
+      <div class="title">Exterior Detailing</div>
+      <div class="desc">Deep wash, wheels, glass, tire dressing, and exterior refresh.</div>
+    </div>
+    <div class="pill">Exterior</div>
+  </a>
+
+  <a class="item" href="#services" role="menuitem">
+    <div class="icon" aria-hidden="true">✨</div>
+    <div>
+      <div class="title">Paint Enhancement</div>
+      <div class="desc">Improve gloss and reduce light paint defects.</div>
+    </div>
+    <div class="pill">Upgrade</div>
+  </a>
+
+  <a class="item" href="#services" role="menuitem">
+    <div class="icon" aria-hidden="true">🛡️</div>
+    <div>
+      <div class="title">Ceramic & Protection Options</div>
+      <div class="desc">Sealants, ceramic protection, glass coating, and trim protection.</div>
+    </div>
+    <div class="pill">Protect</div>
+  </a>
+
+  <a class="item" href="#services" role="menuitem">
+    <div class="icon" aria-hidden="true">💡</div>
+    <div>
+      <div class="title">Headlight Restoration</div>
+      <div class="desc">Restore clarity for safer nighttime driving and better appearance.</div>
+    </div>
+    <div class="pill">Safety</div>
+  </a>
+
+  <a class="item" href="promotions.html" role="menuitem">
+    <div class="icon" aria-hidden="true">🏷️</div>
+    <div>
+      <div class="title">Packages & Promotions</div>
+      <div class="desc">See bundle savings, maintenance plans, and client programs.</div>
+    </div>
+    <div class="pill">View</div>
+  </a>
+
+  <a class="item" href="#booking" role="menuitem">
+    <div class="icon" aria-hidden="true">📅</div>
+    <div>
+      <div class="title">Book / Request Quote</div>
+      <div class="desc">Fast scheduling, text-friendly quotes, and free consults.</div>
+    </div>
+    <div class="pill">Now booking</div>
+  </a>
+</div>
           </div>
 
           <a class="btn primary" href="#booking">Book</a>
@@ -876,12 +935,12 @@
                 Luxury mobile detailing and asset protection for vehicles owned by busy individuals looking to skip the hassle. We come to you and leave your vehicle looking as good as the day you got it. Limited availability. Schedule your free, no obligation consult today. 
               </p>
 
-              <div class="cta-row">
-    <a class="btn primary" href="#services">View Services</a>
-                <a class="btn" href="#services">Service Menu</a>
-                <a class="btn ghost" href="tel:+16106395874">Call</a>
-                <a class="btn ghost" href="sms:+16106395874">Text</a>
-              </div>
+           <div class="cta-row">
+  <a class="btn primary" href="#booking">Get a Free Quote</a>
+  <a class="btn" href="promotions.html">Packages & Promotions</a>
+  <a class="btn ghost" href="tel:+16106395874">Call</a>
+  <a class="btn ghost" href="sms:+16106395874">Text</a>
+</div>
 
               <div class="trust">
                 <span><span class="dot"></span>King of Prussia • Main Line • Chester County • Montco • Delaware County</span>
@@ -1001,6 +1060,7 @@
 <div class="cta-row" style="margin-top:14px;">
   <a class="btn primary" href="#booking">Get a Free Quote</a>
   <a class="btn ghost" href="sms:+16106395874">Text for a Quote</a>
+  <a class="btn ghost" href="promotions.html">Packages & Promotions</a>
 </div>
     </div>
 
