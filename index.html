@@ -538,6 +538,22 @@
   color: rgba(255,255,255,.88);
 }
 
+.quote-subtext{
+  margin-top: 6px;
+  margin-bottom: 18px;
+  font-size: 14px;
+  color: rgba(255,255,255,.78);
+  line-height: 1.6;
+}
+
+.quote-benefits{
+  display:grid;
+  gap: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: rgba(255,255,255,.88);
+}
+
 .quote-form{
   display:grid;
   gap: 14px;
@@ -547,7 +563,7 @@
   margin-top: 0;
 }
 
-.quote-form input,
+.quote-form input:not([type="checkbox"]):not([type="file"]),
 .quote-form textarea,
 .quote-form select{
   width:100%;
@@ -556,13 +572,20 @@
   font-size: 15px;
 }
 
+.quote-form input[type="file"]{
+  width:100%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-size: 14px;
+}
+
 .quote-form textarea{
   min-height: 120px;
   resize: vertical;
 }
 
 .plan-note{
-  margin-top: -2px;
+  margin: -2px 0 0;
   font-size: 13px;
   color: rgba(255,255,255,.80);
   line-height: 1.55;
@@ -573,20 +596,31 @@
   font-size: 14px;
   font-weight: 700;
   color: var(--text);
+  line-height: 1.5;
 }
 
 .sms-consent{
   display:flex;
   align-items:flex-start;
-  gap: 8px;
+  gap: 10px;
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: rgba(255,255,255,.80);
+  margin-top: 2px;
 }
 
 .sms-consent input[type="checkbox"]{
-  margin-top: 3px;
-  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin: 2px 0 0;
+  padding: 0;
+  flex: 0 0 16px;
+  accent-color: var(--gold);
+}
+
+.sms-consent span{
+  flex: 1;
+  min-width: 0;
 }
 
 .trust-note{
@@ -599,7 +633,7 @@
 .form-divider{
   height: 1px;
   background: rgba(255,255,255,.08);
-  margin: 2px 0;
+  margin: 4px 0;
 }
     .chip i{
       width: 18px;
