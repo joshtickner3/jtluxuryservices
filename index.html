@@ -229,6 +229,60 @@
       background: rgba(214,178,94,.06);
       color: var(--gold2);
     }
+        .pricing-range-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .pricing-range-card{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 16px 14px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.30);
+    }
+
+    .pricing-range-card b{
+      display:block;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--gold2);
+      margin-bottom: 8px;
+    }
+
+    .pricing-range-card .range{
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -.02em;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .pricing-range-card span{
+      display:block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .pricing-note{
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding-top: 12px;
+    }
+
+    @media (max-width: 700px){
+      .pricing-range-grid{
+        grid-template-columns: 1fr;
+      }
+    }
 
     /* Dropdown */
     .dropdown{ position:relative; }
@@ -1024,22 +1078,41 @@
       Perfect for busy owners who want a professional refresh without overthinking options.
     </p>
 
-    <!-- Anchor package -->
-    <div class="card service-block" style="margin-top:14px;">
+       <div class="card service-block" style="margin-top:14px;">
       <div class="title-row">
         <div style="display:flex; gap:10px; align-items:center;">
           <div class="mini" aria-hidden="true">✦</div>
           <div>
             <h3>Full Deep Interior + Exterior Reset</h3>
             <p class="service-intro" style="margin:6px 0 0;">
-              A complete interior + exterior restoration-focused clean.
+              A complete interior + exterior restoration-focused clean designed to bring your vehicle back to a clean, comfortable, high-end baseline.
             </p>
           </div>
         </div>
-        <div class="service-pill">Included</div>
+        <div class="service-pill">Most Popular</div>
       </div>
 
-      <ul class="service-list" aria-label="What's included in the Full Basic Interior + Exterior Reset">
+      <div class="pricing-range-grid" aria-label="Deep interior and exterior reset pricing ranges">
+        <div class="pricing-range-card">
+          <b>Sedans / Coupes</b>
+          <div class="range">$350–$550</div>
+          <span>Typical range for a full deep interior + exterior reset.</span>
+        </div>
+
+        <div class="pricing-range-card">
+          <b>SUVs</b>
+          <div class="range">$400–$650</div>
+          <span>Based on vehicle size, buildup, and level of restoration needed.</span>
+        </div>
+
+        <div class="pricing-range-card">
+          <b>Large SUVs / Trucks</b>
+          <div class="range">$450–$750</div>
+          <span>Ideal for larger vehicles requiring additional time and labor.</span>
+        </div>
+      </div>
+
+      <ul class="service-list" aria-label="What's included in the Full Deep Interior + Exterior Reset">
         <li><span class="check" aria-hidden="true">✓</span>Deep wheel & exterior clean</li>
         <li><span class="check" aria-hidden="true">✓</span>Tire shine</li>
         <li><span class="check" aria-hidden="true">✓</span>Trash & debris removal</li>
@@ -1053,15 +1126,19 @@
         <li><span class="check" aria-hidden="true">✓</span>Air freshening (clean, subtle finish)</li>
       </ul>
 
+      <div class="pricing-note">
+        Final pricing depends on vehicle size, overall condition, and the level of restoration required. Exact quotes can usually be provided quickly from photos.
+      </div>
+
       <div class="service-foot">
         Want deeper correction or protection? Choose from the add-ons below or text us your goal and we’ll recommend the best option.
       </div>
 
-<div class="cta-row" style="margin-top:14px;">
-  <a class="btn primary" href="#booking">Get a Free Quote</a>
-  <a class="btn ghost" href="sms:+16106395874">Text for a Quote</a>
-  <a class="btn ghost" href="promotions.html">Packages & Promotions</a>
-</div>
+      <div class="cta-row" style="margin-top:14px;">
+        <a class="btn primary" href="#booking">Get a Free Quote</a>
+        <a class="btn ghost" href="sms:+16106395874">Text for a Quote</a>
+        <a class="btn ghost" href="promotions.html">Packages & Promotions</a>
+      </div>
     </div>
 
     <!-- Add-ons subsection (requested title + list) -->
