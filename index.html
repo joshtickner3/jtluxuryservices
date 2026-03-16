@@ -84,6 +84,64 @@
       gap:14px;
     }
 
+    .google-rating-card{
+  margin-top: 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  padding: 14px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  box-shadow: 0 10px 28px rgba(0,0,0,.28);
+}
+
+.google-rating-badge{
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(214,178,94,.10);
+  border: 1px solid rgba(214,178,94,.28);
+  color: var(--gold2);
+  font-size: 18px;
+  font-weight: 800;
+  flex: 0 0 auto;
+}
+
+.google-rating-content{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.google-rating-title{
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -.01em;
+}
+
+.google-rating-meta{
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.google-rating-stars{
+  color: var(--gold2);
+  letter-spacing: 2px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.google-rating-link{
+  color: var(--gold2);
+  font-size: 12px;
+  font-weight: 700;
+}
+
     .brand{
       display:flex;
       align-items:center;
@@ -1001,6 +1059,23 @@
                 <span><span class="dot"></span>Paint-safe methods</span>
                 <span><span class="dot"></span>Protection-first approach</span>
               </div>
+              <div class="google-rating-card" id="googleRatingCard" style="display:none;">
+  <div class="google-rating-badge">★</div>
+  <div class="google-rating-content">
+    <div class="google-rating-title">Google Reviews</div>
+    <div class="google-rating-meta" id="googleRatingText">Loading rating…</div>
+    <div class="google-rating-stars" id="googleRatingStars"></div>
+    <a
+      class="google-rating-link"
+      id="googleReviewsLink"
+      href="https://g.page/r/CTQcoWhkpsEaEBM/review"
+      target="_blank"
+      rel="noopener"
+    >
+      Read / leave a review
+    </a>
+  </div>
+</div>
             </div>
           </div>
 
@@ -1366,31 +1441,113 @@
     const statusEl = document.getElementById("formStatus");
 
     form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
+  e.preventDefault();
+  const data = new FormData(form);
 
-      try {
-        const res = await fetch(form.action, {
-          method: "POST",
-          body: data,
-          headers: { "Accept": "application/json" }
-        });
-
-        if (res.ok) {
-          form.reset();
-document.querySelector('input[name="service"][type="hidden"]').value = "Website Quote Request";
-          statusEl.style.display = "block";
-          statusEl.textContent = "Request sent. We’ll reach out shortly.";
-        } else {
-          statusEl.style.display = "block";
-          statusEl.textContent = "Couldn’t send right now. Please text us instead.";
-        }
-      } catch (err) {
-        statusEl.style.display = "block";
-        statusEl.textContent = "Couldn’t send right now. Please text us instead.";
-      }
+  try {
+    const res = await fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: { "Accept": "application/json" }
     });
-  </script>
+
+    if (res.ok) {
+      form.reset();
+      document.querySelector('input[name="service"][type="hidden"]').value = "Website Quote Request";
+      statusEl.style.display = "block";
+      statusEl.textContent = "Request sent. We’ll reach out shortly.";
+    } else {
+      statusEl.style.display = "block";
+      statusEl.textContent = "Couldn’t send right now. Please text us instead.";
+    }
+  } catch (err) {
+    statusEl.style.display = "block";
+    statusEl.textContent = "Couldn’t send right now. Please text us instead.";
+  }
+});
+    
+    
+// ===== Google rating widget =====
+const GOOGLE_API_KEY = "AIzaSyCp25Q2favsdpU4UwGcvUl-tHqpAWh85Hs";
+
+function renderStars(rating) {
+  const rounded = Math.round(rating);
+  return "★".repeat(rounded) + "☆".repeat(5 - rounded);
+}
+
+async function findPlaceId() {
+  const res = await fetch("https://places.googleapis.com/v1/places:searchText", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Goog-Api-Key": GOOGLE_API_KEY,
+      "X-Goog-FieldMask": "places.id,places.displayName"
+    },
+    body: JSON.stringify({
+      textQuery: "JT Luxury Detailing LLC King of Prussia PA"
+    })
+  });
+
+  if (!res.ok) {
+    const errText = await res.text();
+    throw new Error(`Place search failed: ${res.status} - ${errText}`);
+  }
+
+  const data = await res.json();
+
+  if (!data.places || !data.places.length) {
+    throw new Error("No matching Google place found.");
+  }
+
+  return data.places[0].id;
+}
+
+async function loadGoogleRating() {
+  const card = document.getElementById("googleRatingCard");
+  const ratingText = document.getElementById("googleRatingText");
+  const ratingStars = document.getElementById("googleRatingStars");
+  const reviewsLink = document.getElementById("googleReviewsLink");
+
+  try {
+    const placeId = await findPlaceId();
+
+    const detailsRes = await fetch(
+      `https://places.googleapis.com/v1/places/${placeId}?fields=displayName,rating,userRatingCount,googleMapsUri`,
+      {
+        method: "GET",
+        headers: {
+          "X-Goog-Api-Key": GOOGLE_API_KEY
+        }
+      }
+    );
+
+    if (!detailsRes.ok) {
+      const errText = await detailsRes.text();
+      throw new Error(`Place details failed: ${detailsRes.status} - ${errText}`);
+    }
+
+    const place = await detailsRes.json();
+
+    const rating = place.rating;
+    const count = place.userRatingCount;
+    const mapsUrl = place.googleMapsUri || "https://g.page/r/CTQcoWhkpsEaEBM/review";
+
+    if (typeof rating !== "number" || typeof count !== "number") {
+      throw new Error("Rating data missing from Google response.");
+    }
+
+    ratingText.textContent = `${rating.toFixed(1)} out of 5 from ${count} Google review${count === 1 ? "" : "s"}`;
+    ratingStars.textContent = renderStars(rating);
+    reviewsLink.href = mapsUrl;
+    card.style.display = "inline-flex";
+  } catch (err) {
+    console.error("Could not load Google rating:", err);
+  }
+}
+
+loadGoogleRating();
+
+</script>
 
   <!-- Logo -->
   <img src="ChatGPT Image Feb 19, 2026, 04_50_40 PM-1.png" alt="JT Luxury Detailing Logo" class="site-logo-fixed" />
