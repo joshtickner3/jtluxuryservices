@@ -182,6 +182,263 @@
   margin-bottom: 10px;
 }
 
+       /* Results slider */
+    .results-slider{
+      position: relative;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(18,19,26,.72), rgba(13,14,18,.72));
+      box-shadow: 0 14px 38px rgba(0,0,0,.45);
+      overflow: hidden;
+    }
+
+    .results-track{
+      display: flex;
+      transition: transform .45s ease;
+      will-change: transform;
+    }
+
+    .result-slide{
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      min-height: 460px;
+    }
+
+    .result-visual{
+      position: relative;
+      min-height: 460px;
+      background: #0b0b10;
+      overflow: hidden;
+    }
+
+    .ba-wrap{
+      position: absolute;
+      inset: 0;
+      user-select: none;
+    }
+
+    .ba-before,
+    .ba-after{
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .ba-before{
+      z-index: 1;
+    }
+
+    .ba-after{
+      z-index: 2;
+      clip-path: inset(0 0 0 50%);
+    }
+
+    .ba-overlay{
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.34));
+    }
+
+    .ba-divider{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: rgba(255,255,255,.92);
+      transform: translateX(-50%);
+      z-index: 4;
+      pointer-events: none;
+      box-shadow: 0 0 0 1px rgba(0,0,0,.15);
+    }
+
+    .ba-handle{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 54px;
+      height: 54px;
+      transform: translate(-50%, -50%);
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(8,8,12,.66);
+      backdrop-filter: blur(8px);
+      display: grid;
+      place-items: center;
+      z-index: 5;
+      pointer-events: none;
+      color: var(--gold2);
+      font-weight: 900;
+      font-size: 18px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.30);
+    }
+
+    .ba-range{
+      position: absolute;
+      inset: 0;
+      z-index: 6;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+    }
+
+    .ba-label{
+      position: absolute;
+      top: 16px;
+      z-index: 5;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(8,8,12,.58);
+      backdrop-filter: blur(8px);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .ba-label.before{ left: 16px; }
+    .ba-label.after{ right: 16px; }
+
+    .result-copy{
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .result-kicker{
+      display: inline-flex;
+      width: fit-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(214,178,94,.28);
+      background: rgba(214,178,94,.10);
+      color: var(--gold2);
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .result-copy h3{
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.08;
+      letter-spacing: -.02em;
+    }
+
+    .result-copy p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .result-points{
+      margin: 2px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .result-points li{
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .results-controls{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      flex-wrap: wrap;
+    }
+
+    .results-nav{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .results-arrow{
+      min-width: 48px;
+      min-height: 48px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .results-arrow:hover{
+      transform: translateY(-1px);
+      border-color: rgba(214,178,94,.45);
+      background: rgba(214,178,94,.08);
+    }
+
+    .results-dots{
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .results-dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 0;
+      background: rgba(255,255,255,.20);
+      cursor: pointer;
+      padding: 0;
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    .results-dot.active{
+      background: var(--gold2);
+      transform: scale(1.15);
+    }
+
+    .results-count{
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+
+    @media (max-width: 980px){
+      .result-slide{
+        grid-template-columns: 1fr;
+      }
+
+      .result-visual,
+      .ba-wrap{
+        min-height: 320px;
+      }
+
+      .result-copy{
+        padding: 24px 20px;
+      }
+    }
+
 .service-block h3{
   margin: 0;
   font-size: 16px;
@@ -1047,9 +1304,9 @@
   JT Luxury Detailing specializes in deep interior resets for busy vehicle owners who want a luxurious, healthier, and more comfortable driving experience without the hassle. <strong>Exterior cleaning, paint correction, long term vehicle protection, ceramic, and headlight restoration options are available</strong>. Schedule your free, no obligation consultation today.
 </p>
 
-           <div class="cta-row">
+<div class="cta-row">
   <a class="btn primary" href="#booking">Get a Free Quote</a>
-  <a class="btn" href="promotions.html">Packages & Promotions</a>
+  <a class="btn" href="#results">View Results</a>
   <a class="btn ghost" href="tel:+16106395874">Call</a>
   <a class="btn ghost" href="sms:+16106395874">Text</a>
 </div>
@@ -1137,6 +1394,125 @@
         </div>
         <div style="display:flex; justify-content:center; align-items:center;">
           <a class="btn primary" style="min-width:220px; font-size:1.08em;" href="https://g.page/r/CTQcoWhkpsEaEBM/review" target="_blank" rel="noopener">Leave a Google Review</a>
+        </div>
+      </div>
+    </section>
+
+        <!-- RESULTS -->
+    <section id="results">
+      <div class="container">
+        <div class="section-title">
+          <h2>Results</h2>
+          <div class="hint">Slide to compare before and after transformations. You can swap in your real photos anytime.</div>
+        </div>
+
+        <div class="results-slider" id="resultsSlider">
+          <div class="results-track" id="resultsTrack">
+            <!-- Slide 1 -->
+            <article class="result-slide">
+              <div class="result-visual">
+                <div class="ba-wrap" data-start="50">
+                  <div class="ba-before" style="background-image:url('before-1.png');"></div>
+                  <div class="ba-after" style="background-image:url('after-1.png');"></div>
+                  <div class="ba-overlay"></div>
+                  <div class="ba-label before">Before</div>
+                  <div class="ba-label after">After</div>
+                  <div class="ba-divider"></div>
+                  <div class="ba-handle">↔</div>
+                  <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Before and after slider 1" />
+                </div>
+              </div>
+
+              <div class="result-copy">
+                <div class="result-kicker">Transformation 01</div>
+                <h3>Deep interior reset</h3>
+                <p>
+                  Perfect for showing a heavily used interior transformed into a clean, comfortable, luxury-level cabin.
+                </p>
+
+                <ul class="result-points">
+                  <li><span class="check" aria-hidden="true">✓</span>Use one dirty “before” interior shot</li>
+                  <li><span class="check" aria-hidden="true">✓</span>Use one matching clean “after” shot from a similar angle</li>
+                  <li><span class="check" aria-hidden="true">✓</span>Best for seats, carpets, center console, or whole cabin view</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Slide 2 -->
+            <article class="result-slide">
+              <div class="result-visual">
+                <div class="ba-wrap" data-start="50">
+                  <div class="ba-before" style="background-image:url('before-2.jpg');"></div>
+                  <div class="ba-after" style="background-image:url('after-2.jpg');"></div>
+                  <div class="ba-overlay"></div>
+                  <div class="ba-label before">Before</div>
+                  <div class="ba-label after">After</div>
+                  <div class="ba-divider"></div>
+                  <div class="ba-handle">↔</div>
+                  <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Before and after slider 2" />
+                </div>
+              </div>
+
+              <div class="result-copy">
+                <div class="result-kicker">Transformation 02</div>
+                <h3>Exterior gloss and finish</h3>
+                <p>
+                  Great for showing paint clarity, wheel cleaning, gloss improvement, and overall presentation after the detail.
+                </p>
+
+                <ul class="result-points">
+                  <li><span class="check" aria-hidden="true">✓</span>Use consistent lighting when possible</li>
+                  <li><span class="check" aria-hidden="true">✓</span>Try to match angle and distance for before and after</li>
+                  <li><span class="check" aria-hidden="true">✓</span>Good for paint, wheels, trim, and full vehicle shots</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Slide 3 -->
+            <article class="result-slide">
+              <div class="result-visual">
+                <div class="ba-wrap" data-start="50">
+                  <div class="ba-before" style="background-image:url('before-3.jpg');"></div>
+                  <div class="ba-after" style="background-image:url('after-3.jpg');"></div>
+                  <div class="ba-overlay"></div>
+                  <div class="ba-label before">Before</div>
+                  <div class="ba-label after">After</div>
+                  <div class="ba-divider"></div>
+                  <div class="ba-handle">↔</div>
+                  <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Before and after slider 3" />
+                </div>
+              </div>
+
+              <div class="result-copy">
+                <div class="result-kicker">Transformation 03</div>
+                <h3>Specialty problem area</h3>
+                <p>
+                  Use this slot for pet hair, stains, headlights, trim revival, or another high-contrast result that sells the service fast.
+                </p>
+
+                <ul class="result-points">
+                  <li><span class="check" aria-hidden="true">✓</span>Best for dramatic close-up results</li>
+                  <li><span class="check" aria-hidden="true">✓</span>Headlights and stains work especially well here</li>
+                  <li><span class="check" aria-hidden="true">✓</span>Swap these image names later with your real files</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="results-controls">
+            <div class="results-nav">
+              <button class="results-arrow" id="resultsPrev" type="button" aria-label="Previous result">←</button>
+              <button class="results-arrow" id="resultsNext" type="button" aria-label="Next result">→</button>
+            </div>
+
+            <div class="results-dots" id="resultsDots">
+              <button class="results-dot active" type="button" aria-label="Go to slide 1"></button>
+              <button class="results-dot" type="button" aria-label="Go to slide 2"></button>
+              <button class="results-dot" type="button" aria-label="Go to slide 3"></button>
+            </div>
+
+            <div class="results-count" id="resultsCount">1 / 3</div>
+          </div>
         </div>
       </div>
     </section>
@@ -1382,10 +1758,10 @@
     <div class="container">
       <div class="footer-row">
         <div>© <span id="yr"></span> JT Luxury Detailing. All rights reserved.</div>
-        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
           <a href="#services">Services</a>
           <span style="opacity:.45;">•</span>
-          <a href="#ceramic">Ceramic</a>
+          <a href="#results">Results</a>
           <span style="opacity:.45;">•</span>
           <a href="#booking">Book</a>
           <span style="opacity:.45;">•</span>
@@ -1544,6 +1920,62 @@ async function loadGoogleRating() {
     console.error("Could not load Google rating:", err);
   }
 }
+
+// ===== Results slider =====
+const resultsTrack = document.getElementById("resultsTrack");
+const resultsPrev = document.getElementById("resultsPrev");
+const resultsNext = document.getElementById("resultsNext");
+const resultsDots = Array.from(document.querySelectorAll(".results-dot"));
+const resultsCount = document.getElementById("resultsCount");
+const resultSlides = Array.from(document.querySelectorAll(".result-slide"));
+
+let currentResult = 0;
+
+function updateResultsSlider(index) {
+  if (!resultsTrack || !resultSlides.length) return;
+
+  currentResult = (index + resultSlides.length) % resultSlides.length;
+  resultsTrack.style.transform = `translateX(-${currentResult * 100}%)`;
+
+  resultsDots.forEach((dot, i) => {
+    dot.classList.toggle("active", i === currentResult);
+  });
+
+  resultsCount.textContent = `${currentResult + 1} / ${resultSlides.length}`;
+}
+
+if (resultsPrev && resultsNext) {
+  resultsPrev.addEventListener("click", () => updateResultsSlider(currentResult - 1));
+  resultsNext.addEventListener("click", () => updateResultsSlider(currentResult + 1));
+}
+
+resultsDots.forEach((dot, i) => {
+  dot.addEventListener("click", () => updateResultsSlider(i));
+});
+
+updateResultsSlider(0);
+
+// ===== Before / after handles =====
+document.querySelectorAll(".ba-wrap").forEach((wrap) => {
+  const range = wrap.querySelector(".ba-range");
+  const after = wrap.querySelector(".ba-after");
+  const divider = wrap.querySelector(".ba-divider");
+  const handle = wrap.querySelector(".ba-handle");
+  const start = wrap.dataset.start || "50";
+
+  function updateBA(value) {
+    after.style.clipPath = `inset(0 0 0 ${value}%)`;
+    divider.style.left = `${value}%`;
+    handle.style.left = `${value}%`;
+  }
+
+  range.value = start;
+  updateBA(start);
+
+  range.addEventListener("input", (e) => {
+    updateBA(e.target.value);
+  });
+});
 
 loadGoogleRating();
 
